@@ -1,6 +1,6 @@
-from flask import (
-    Blueprint, render_template, request
-)
+from flask import Blueprint, redirect, render_template, request, url_for
+from .db import createEngine, generateSession, User
+from argon2 import PasswordHasher
 
 bp = Blueprint('account_services', __name__, url_prefix='/AccountServices')
 
@@ -8,9 +8,21 @@ bp = Blueprint('account_services', __name__, url_prefix='/AccountServices')
 @bp.route('/register', methods=('GET', 'POST'))
 def register():
     if request.method == 'POST':
-        # post api logic here
-        print("Something happened")
-        return False
+        username = request.form['username']
+        password = request.form['password']
+
+        ph = PasswordHasher()
+        hash = ph.hash(password)
+        new_user = User(fld_username=username, fld_password=hash)
+
+        try:
+            session = generateSession()
+            session.add(new_user)
+            session.commit()
+            return redirect(url_for('account_services.authenticate'))
+        except Exception as err:
+            print(err)
+            return False
 
     return render_template('account_services/register.html')
 

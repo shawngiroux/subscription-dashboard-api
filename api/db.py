@@ -28,18 +28,20 @@ def createEngine():
     return engine
 
 
+# Table descriptions
+Base = declarative_base()
+
+
+class User(Base):
+    __tablename__ = 'tbl_users'
+
+    id = Column(Integer, primary_key=True)
+    fld_username = Column(String(60), unique=True, nullable=False)
+    fld_password = Column(String(128), nullable=False)
+
+
 def init_db():
     engine = createEngine()
-
-    # Table descriptions
-    Base = declarative_base()
-
-    class User(Base):
-        __tablename__ = 'tbl_users'
-
-        id = Column(Integer, primary_key=True)
-        fld_username = Column(String(60), unique=True, nullable=False)
-        fld_password = Column(String(128), nullable=False)
 
     # Create tables
     Base.metadata.create_all(engine)

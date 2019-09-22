@@ -3,11 +3,20 @@
 {% block title %} Register {% endblock %}
 
 {% block content %}
-<form method="post">
-    <label for="username">Username</label>
-    <input type="text" name="username" id="username" required>
-    <label for="password">Password</label>
-    <input type="text" name="password" id="password" required>
-    <input type="submit" value="Register">
-</form>
+<div class="card">
+    <div class="container" id="login">
+        <h1>Welcome Back!</h1>
+        <p>Sign into your account</p>
+        <a href="#" id="login-button">SIGN IN</a>
+    </div>
+    <div class="container" id="register">
+        <h1>Create Account</h1>
+        <form method="post">
+            <input type="text" name="username" id="username" placeholder="Username" required>
+            <input type="text" name="password" id="password" placeholder="Password" required>
+            <input type="text" name="confirm" id="confirm" placeholder="Confirm Password" required>
+            <input id="register-button" type="submit" value="SIGN UP">
+        </form>
+    </div>
+</div>
 {% endblock %}

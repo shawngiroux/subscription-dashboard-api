@@ -1,13 +1,26 @@
 function validateForm() {
-    let password = document.getElementById('password').value.trim();
-    let confirm = document.getElementById('confirm').value.trim();
+    let usernameEle = document.getElementById('username'),
+        passwordEle = document.getElementById('password'),
+        confirmEle = document.getElementById('confirm');
 
-    if (password === confirm) {
-        return true;
+    let username = usernameEle.value.trim(),
+        password = passwordEle.value.trim(),
+        confirm = confirmEle.value.trim();
+
+    // Username Validation
+    if (username === '') {
+        usernameEle.setCustomValidity(
+            "Please fill out this field."
+        );
     }
 
-    document.getElementById('confirm').setCustomValidity(
-        "Confirmation password does not match"
-    );
+    // Confirmation Validation
+    if (password === confirm) {
+        return true;
+    } else {
+        confirmEle.setCustomValidity(
+            "Confirmation password does not match."
+        );
+    }
     return false;
 }

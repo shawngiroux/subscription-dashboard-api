@@ -50,15 +50,21 @@ h1, p, input, a {
 }
 
 #login-button {
-    padding-top: 0.3em;
-    padding-bottom: 0.3em;
+    padding-top: 0.75em;
+    padding-bottom: 0.75em;
     padding-left: 3em;
     padding-right: 3em;
     text-decoration: none;
     color: white;
     background-color: #36ad93;
     border: #ffffff 1px solid;
+    font-size: 0.75em;
     border-radius: 25px;
+}
+
+#login-button:hover {
+    color: #36ad93;
+    background-color: #ffffff;
 }
 
 #register {
@@ -80,8 +86,14 @@ h1, p, input, a {
     margin-top: 2em;
     width: 50%;
     height: 3em;
+    font-size: 0.75em;
     color: #ffffff;
     border-radius: 25px;
     background-color: #36ad93;
-    border: none;
+    border: 1px #36ad93 solid;
+}
+
+#register-button:hover {
+    color: #36ad93;
+    background-color: white;
 }

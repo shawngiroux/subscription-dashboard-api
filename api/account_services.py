@@ -1,4 +1,6 @@
-from flask import Blueprint, redirect, render_template, request, url_for
+from flask import (
+    Blueprint, redirect, render_template, request, url_for, jsonify, make_response
+)
 from .db import createEngine, generateSession, User
 from argon2 import PasswordHasher
 
@@ -21,8 +23,8 @@ def register():
             session.commit()
             return redirect(url_for('account_services.authenticate'))
         except Exception as err:
-            print(err)
-            return False
+            response = jsonify({'error': 'Username already taken'})
+            return make_response(response, 400)
 
     return render_template('account_services/register.html')
 

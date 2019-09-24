@@ -75,7 +75,8 @@ h1, p, input, a {
     color: #36ad93;
 }
 
-#register input[type=text] {
+#register input[type=text],
+#register input[type=password] {
     width: 100%;
     background-color: #f7f7f7;
     border: none;

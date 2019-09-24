@@ -1,14 +1,14 @@
 function validateForm() {
-    let usernameEle = document.getElementById('username'),
-        passwordEle = document.getElementById('password'),
-        confirmEle = document.getElementById('confirm');
+    let usernameEle = document.getElementById("username"),
+        passwordEle = document.getElementById("password"),
+        confirmEle = document.getElementById("confirm");
 
     let username = usernameEle.value.trim(),
         password = passwordEle.value.trim(),
         confirm = confirmEle.value.trim();
 
     // Username Validation
-    if (username === '') {
+    if (username === "") {
         usernameEle.setCustomValidity(
             "Please fill out this field."
         );

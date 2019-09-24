@@ -8,8 +8,8 @@ bp = Blueprint('account_services', __name__, url_prefix='/AccountServices')
 @bp.route('/register', methods=('GET', 'POST'))
 def register():
     if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
+        username = request.get_json().get('username')
+        password = request.get_json().get('password')
 
         ph = PasswordHasher()
         hash = ph.hash(password)

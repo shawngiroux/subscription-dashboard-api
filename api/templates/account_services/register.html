@@ -11,12 +11,12 @@
     </div>
     <div class="container" id="register">
         <h1>Create Account</h1>
-        <form method="post" onsubmit="return validateForm()">
+        <div class="form-content">
             <input type="text" name="username" id="username" placeholder="Username" required>
             <input type="text" name="password" id="password" placeholder="Password" required>
             <input type="text" name="confirm" id="confirm" placeholder="Confirm Password" required>
-            <input id="register-button" type="submit" value="SIGN UP">
-        </form>
+            <button id="register-button" onclick="validateForm()">SIGN UP</button>
+        </div>
     </div>
 </div>
 {% endblock %}

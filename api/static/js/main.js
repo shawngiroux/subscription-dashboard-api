@@ -23,13 +23,12 @@ function submitForm(username, password) {
             return response.json();
         })
         .then(() => {
-            // TODO handle body
             let domain = document.domain;
             window.location.href = domain + "/AccountServices/authenticate";
         })
-        .catch((error) => {
-            // TODO handle error
-            console.log(error);
+        .catch((err) => {
+            let usernameEle = document.getElementById("username");
+            invalidateField(usernameEle, err.error);
         });
 }
 
@@ -44,18 +43,33 @@ function validateForm() {
 
     // Username Validation
     if (username === "") {
-        usernameEle.setCustomValidity(
-            "Please fill out this field."
-        );
+        invalidateField(usernameEle, "Please fill out this field");
+        return false;
+    }
+
+    // Password Validation
+    if (password === "") {
+        invalidateField(passwordEle, "Please enter in a password");
+        return false;
     }
 
     // Confirmation Validation
-    if (password === confirm) {
-        submitForm(username, password);
-    } else {
-        confirmEle.setCustomValidity(
-            "Confirmation password does not match."
-        );
+    if (password !== confirm) {
+        invalidateField(confirmEle, "Confirmation password does not match");
+        return false;
     }
-    return false;
+
+    clearValidationField(usernameEle);
+    clearValidationField(passwordEle);
+    clearValidationField(confirmEle);
+    submitForm(username, password);
+}
+
+function invalidateField(ele, error) {
+    ele.setCustomValidity(error);
+    ele.reportValidity();
+}
+
+function clearValidationField(ele) {
+    ele.setCustomValidity("");
 }

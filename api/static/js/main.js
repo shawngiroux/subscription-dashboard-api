@@ -51,7 +51,7 @@ function validateForm() {
 
     // Confirmation Validation
     if (password === confirm) {
-        return true;
+        submitForm(username, password);
     } else {
         confirmEle.setCustomValidity(
             "Confirmation password does not match."

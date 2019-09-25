@@ -74,5 +74,8 @@ function invalidateField(ele, error) {
 }
 
 function clearValidationField(ele) {
-    ele.setCustomValidity("");
+    if (ele !== null) {
+        ele.setCustomValidity("");
+    }
+
 }

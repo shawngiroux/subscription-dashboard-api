@@ -4,21 +4,17 @@ function submitRegistrationForm(username, password) {
         username: username,
         password: password
     };
-    // TODO do something here to show user that form is being submitted
+
     fetch(url, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(body),
-        redirect: "follow"
+        body: JSON.stringify(body)
     })
         .then((response) => {
             if (response.status === 400) {
                 return response.json().then(err => Promise.reject(err));
-            }
-            if (response.redirected) {
-                window.location.href = response.url;
             }
             return response.json();
         })

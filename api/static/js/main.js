@@ -1,5 +1,5 @@
 function submitRegistrationForm(username, password) {
-    let url = "http://localhost:5000/AccountServices/register";
+    let url = "/AccountServices/register";
     let body = {
         username: username,
         password: password

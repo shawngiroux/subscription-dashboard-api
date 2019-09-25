@@ -1,4 +1,4 @@
-function submitForm(username, password) {
+function submitRegistrationForm(username, password) {
     let url = "http://localhost:5000/AccountServices/register";
     let body = {
         username: username,
@@ -65,7 +65,7 @@ function validateForm() {
         clearValidationField(confirmEle);
     }
 
-    submitForm(username, password);
+    submitRegistrationForm(username, password);
 }
 
 function invalidateField(ele, error) {

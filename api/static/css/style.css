@@ -16,10 +16,20 @@ h1, p, input, a {
     display: flex;
     flex-direction: row;
     border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.register-card {
     width: 700px;
     height: 85%;
     max-height: 500px;
-    overflow: hidden;
+}
+
+.login-card {
+    width: 400px;
+    height: 85%;
+    max-height: 500px;
 }
 
 .container {
@@ -28,6 +38,7 @@ h1, p, input, a {
     width: 100%;
     padding: 2em;
     align-items: center;
+    justify-content: space-around;
 }
 
 .container .form-content {
@@ -35,7 +46,6 @@ h1, p, input, a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 30%;
 }
 
 .container .form-content > input {
@@ -47,6 +57,20 @@ h1, p, input, a {
     color: #ffffff;
     background-color: #36ad93;
     justify-content: center;
+}
+
+#login-logo {
+    font-size: 2.0em;
+    font-family: 'Pacifico', cursive;
+    width: 100%;
+    padding: 1em;
+    color: #ffffff;
+    text-align: center;
+    background-color: #36ad93;
+}
+
+#login-title {
+    color: #36ad93;
 }
 
 #login-button {
@@ -71,7 +95,7 @@ h1, p, input, a {
     background-color: #ffffff;
 }
 
-#register h1 {
+#register-title {
     color: #36ad93;
 }
 
@@ -97,4 +121,11 @@ h1, p, input, a {
 #register-button:hover {
     color: #36ad93;
     background-color: white;
+}
+
+#register-link {
+    margin-top: 0.5em;
+    font-size: 0.90em;
+    color: #36ad93;
+    text-decoration: none;
 }

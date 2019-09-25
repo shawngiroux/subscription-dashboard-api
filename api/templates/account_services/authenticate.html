@@ -1,1 +1,18 @@
 {% extends 'base.html' %}
+
+{% block title %} Authenticate {% endblock %}
+
+{% block content %}
+<div class="card login-card">
+    <div class="container" id="register">
+        <span id="login-logo">Subscription Dashboard</span>
+        <h1 id="login-title">Welcome Back!</h1>
+        <div class="form-content login-form">
+            <input type="text" name="username" id="username" placeholder="Username" required>
+            <input type="password" name="password" id="password" placeholder="Password" required>
+            <button id="register-button" onclick="validateForm()">SIGN IN</button>
+            <a href="/AccountServices/register" id="register-link">No account? Sign up now!</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

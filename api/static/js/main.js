@@ -43,25 +43,28 @@ function validateForm() {
 
     // Username Validation
     if (username === "") {
-        invalidateField(usernameEle, "Please fill out this field");
+        invalidateField(usernameEle, "Please enter in a username");
         return false;
+    } else {
+        clearValidationField(usernameEle);
     }
 
     // Password Validation
     if (password === "") {
         invalidateField(passwordEle, "Please enter in a password");
         return false;
+    } else {
+        clearValidationField(passwordEle);
     }
 
     // Confirmation Validation
     if (password !== confirm) {
         invalidateField(confirmEle, "Confirmation password does not match");
         return false;
+    } else {
+        clearValidationField(confirmEle);
     }
 
-    clearValidationField(usernameEle);
-    clearValidationField(passwordEle);
-    clearValidationField(confirmEle);
     submitForm(username, password);
 }
 

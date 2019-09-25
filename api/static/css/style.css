@@ -95,6 +95,14 @@ h1, p, input, a {
     background-color: #ffffff;
 }
 
+#register-logo {
+    font-size: 2.0em;
+    font-family: 'Pacifico', cursive;
+    width: 100%;
+    color: #36ad93;
+    text-align: center;
+}
+
 #register-title {
     color: #36ad93;
 }

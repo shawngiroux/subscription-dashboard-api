@@ -28,14 +28,14 @@ function submitRegistrationForm(username, password) {
         });
 }
 
-function validateForm() {
+function validateForm(type) {
     let usernameEle = document.getElementById("username"),
         passwordEle = document.getElementById("password"),
         confirmEle = document.getElementById("confirm");
 
     let username = usernameEle.value.trim(),
         password = passwordEle.value.trim(),
-        confirm = confirmEle.value.trim();
+        confirm = confirmEle !== null ? confirmEle.value.trim() : null;
 
     // Username Validation
     if (username === "") {
@@ -54,14 +54,18 @@ function validateForm() {
     }
 
     // Confirmation Validation
-    if (password !== confirm) {
+    if (confirm !== null && password !== confirm) {
         invalidateField(confirmEle, "Confirmation password does not match");
         return false;
     } else {
         clearValidationField(confirmEle);
     }
 
-    submitRegistrationForm(username, password);
+    if (type === "login") {
+        // TODO login function
+    } else if (type == "registration") {
+        submitRegistrationForm(username, password);
+    }
 }
 
 function invalidateField(ele, error) {

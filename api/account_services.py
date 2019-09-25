@@ -32,7 +32,27 @@ def register():
 @bp.route('/authenticate', methods=('GET', 'POST'))
 def authenticate():
     if request.method == 'POST':
-        # post api logic here
-        return False
+        username = request.get_json().get('username')
+        password = request.get_json().get('password')
+
+        hash = False
+        ph = PasswordHasher()
+        session = generateSession()
+
+        for fld_password, in session.query(User.fld_password).\
+                filter(User.fld_username == username):
+            hash = fld_password
+
+        if (hash is not False):
+            try:
+                result = ph.verify(fld_password, password)
+                if result:
+                    response = jsonify({'message': 'Login Successful'})
+                    return make_response(response)
+            except Exception as err:
+                print(err)
+                return make_response(jsonify({'error': 'something bad happened'}))
+
+        return make_response(jsonify({'error': 'something bad happened'}))
 
     return render_template('account_services/authenticate.html')

@@ -1,3 +1,26 @@
+function submitLoginForm(username, password) {
+    let url = "/AccountServices/authenticate";
+    let body = {
+        username: username,
+        password: password
+    };
+
+    fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(body),
+    })
+        .then((response) => {
+            return response.json();
+        })
+        .then((response) => {
+            // TODO redirect user with token
+            console.log(response);
+        });
+}
+
 function submitRegistrationForm(username, password) {
     let url = "/AccountServices/register";
     let body = {
@@ -62,7 +85,7 @@ function validateForm(type) {
     }
 
     if (type === "login") {
-        // TODO login function
+        submitLoginForm(username, password);
     } else if (type == "registration") {
         submitRegistrationForm(username, password);
     }

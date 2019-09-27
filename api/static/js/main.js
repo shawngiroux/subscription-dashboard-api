@@ -86,7 +86,7 @@ function validateForm(type) {
 
     if (type === "login") {
         submitLoginForm(username, password);
-    } else if (type == "registration") {
+    } else if (type == "register") {
         submitRegistrationForm(username, password);
     }
 }

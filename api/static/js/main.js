@@ -27,14 +27,12 @@ function submitRegistrationForm(username, password) {
         username: username,
         password: password
     };
-    // TODO do something here to show user that form is being submitted
     fetch(url, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify(body),
-        redirect: "follow"
     })
         .then((response) => {
             if (response.status === 400) {
@@ -44,10 +42,6 @@ function submitRegistrationForm(username, password) {
                 window.location.href = response.url;
             }
             return response.json();
-        })
-        .then(() => {
-            let domain = document.domain;
-            window.location.href = domain + "/AccountServices/authenticate";
         })
         .catch((err) => {
             let usernameEle = document.getElementById("username");
